@@ -9,7 +9,7 @@ read -p "Entrez votre choix (1,2 ou 3) : " var
 
 case $var in 
 1)read -p "Entrez votre nom d'utilisateur : " userName
-if [ -z "$(grep $userName  /etc/passwd)" ]
+if [ -z "$(grep $userName /etc/passwd)" ]
 then
 sudo useradd $userName
 echo $userName "a été crée"
@@ -25,5 +25,6 @@ sudo userdel $userName
 echo "$userName a été supprimé"
 ;;
 3)exit 0;;
-*) echo "Choix invalide";;
+*) echo "Choix invalide, recommencez : "
+./mcp_users.sh;;
 esac
