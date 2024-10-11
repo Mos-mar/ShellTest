@@ -15,8 +15,8 @@ sudo useradd $userName
 echo $userName "a été crée"
 sudo passwd $userName
 else
-echo "L'utilisateur existe déjà"
-exit 0
+echo "L'utilisateur existe déjà, choissisez un autre userName : "
+./mcp_users.sh
 fi
 ;;
 2)cat /etc/passwd
