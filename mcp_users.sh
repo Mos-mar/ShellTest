@@ -12,7 +12,8 @@ case $var in
 sudo useradd $userName
 echo $userName "a été crée"
 sudo passwd $userName;;
-2)read -p "Entrez le nom d'utilisateur à supprimer : " userName
+2)cat /etc/passwd
+read -p "Entrez le nom d'utilisateur à supprimer : " userName
 sudo userdel $userName
 echo "$userName a été supprimé"
 ;;
