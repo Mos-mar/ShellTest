@@ -8,10 +8,17 @@ echo "3. Quitter"
 read -p "Entrez votre choix (1,2 ou 3) : " var
 
 case $var in 
-1) read -p "Entrez votre nom d'utilisateur : " userName
+1)read -p "Entrez votre nom d'utilisateur : " userName
+if [ -z "$(grep $userName  /etc/passwd)" ]
+then
 sudo useradd $userName
 echo $userName "a été crée"
-sudo passwd $userName;;
+sudo passwd $userName
+else
+echo "L'utilisateur existe déjà"
+exit 0
+fi
+;;
 2)cat /etc/passwd
 read -p "Entrez le nom d'utilisateur à supprimer : " userName
 sudo userdel $userName
